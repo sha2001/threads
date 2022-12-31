@@ -1,3 +1,3 @@
 # threads
 
-Sample example with thread in java
+Code examples  with thread in java
