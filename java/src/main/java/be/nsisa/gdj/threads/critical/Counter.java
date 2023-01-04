@@ -1,10 +1,7 @@
 package be.nsisa.gdj.threads.critical;
 
-public class Counter {
+public interface Counter {
+    void add(long value);
 
-    protected long count = 0;
-
-    public void add(long value){
-        this.count = this.count + value;
-    }
+    String getCounter();
 }

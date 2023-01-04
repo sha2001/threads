@@ -9,6 +9,7 @@ public class SharedSampleThread extends Thread {
     private static final Random random = new Random();
     private final Counter counter;
 
+
     public SharedSampleThread(String s, Counter counter) {
         this.name = s;
         this.counter = counter;
@@ -17,18 +18,33 @@ public class SharedSampleThread extends Thread {
     @Override
     public void run() {
         int value = random.nextInt(10);
-        System.out.println(this.name + " add value : " + value);
+        System.out.println(this.name + " add value : " + value + " to " + counter.getCounter());
         counter.add(value);
-        System.out.println(counter.count);
+        System.out.println("Total : " + counter.getCounter());
     }
 
     public static void main(String... args) {
 
-        Counter counter = new Counter();
+      //  aSynch();
+
+        synch();
+
+    }
+
+    private static void synch() {
+        SynchCounter synchCounter = new SynchCounter();
         for (int i = 1; i <= 5; i++) {
-            Thread sample = new SharedSampleThread("Thread " + i, counter);
+            Thread sample = new SharedSampleThread("Thread Synch " + i, synchCounter);
             sample.start();
         }
-        System.out.println("Total " + counter.count);
+    }
+
+    private static void aSynch() {
+        System.out.println("Counter");
+        AsynchCounter asynchCounter = new AsynchCounter();
+        for (int i = 1; i <= 5; i++) {
+            Thread sample = new SharedSampleThread("Thread ASynch " + i, asynchCounter);
+            sample.start();
+        }
     }
 }
