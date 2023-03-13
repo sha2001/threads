@@ -6,8 +6,8 @@ public class Delegator {
 
     public static void main(String... args) {
 
-        String source = "/words.text";
-        String destination = "shared_result.text";
+        String source = "/words.txt";
+        String destination = "shared_result.txt";
 
         File myObj = new File(destination);
         myObj.delete();

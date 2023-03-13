@@ -8,7 +8,7 @@
     <name>Threads</name>
     <description>Thread</description>
     <modules>
-        <module>java14</module>
+        <module>java19</module>
         <module>java8</module>
     </modules>
     <packaging>pom</packaging>

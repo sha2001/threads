@@ -14,9 +14,9 @@ public class WaitingState implements Runnable {
     public void run() {
         Thread t2 = new Thread(new DemoWaitingStateRunnable());
         t2.start();
-
         try {
             // Waits for t2 dying.
+            log.info("{}", WaitingState.t1.getState());
             t2.join();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -28,13 +28,13 @@ public class WaitingState implements Runnable {
 @Slf4j
 class DemoWaitingStateRunnable implements Runnable {
     public void run() {
+        log.info("Running");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             e.printStackTrace();
         }
-
         log.info("{}", WaitingState.t1.getState());
     }
 }

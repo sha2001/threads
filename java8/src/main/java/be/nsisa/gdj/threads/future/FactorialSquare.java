@@ -16,11 +16,8 @@ public class FactorialSquare extends RecursiveTask<Integer> {
         if (n <= 1) {
             return n;
         }
-
         FactorialSquare calculator = new FactorialSquare(n - 1);
-
         calculator.fork();
-
         return n * n + calculator.join();
     }
 }

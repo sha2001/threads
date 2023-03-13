@@ -13,6 +13,6 @@ public class RunableState implements Runnable {
 
     @Override
     public void run() {
-
+        log.info("Running");
     }
 }

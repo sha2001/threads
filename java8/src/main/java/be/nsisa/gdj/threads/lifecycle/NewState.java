@@ -9,10 +9,11 @@ public class NewState implements Runnable {
         Runnable runnable = new NewState();
         Thread t = new Thread(runnable);
         log.info("Current state : {}", t.getState());
+        t.start();
     }
 
     @Override
     public void run() {
-        System.out.println("Running");
+        log.info("Running");
     }
 }

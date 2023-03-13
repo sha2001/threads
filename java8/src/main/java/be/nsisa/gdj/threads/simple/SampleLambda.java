@@ -25,10 +25,6 @@ public class SampleLambda {
         };
 
         for (int i = 1; i <= 10; i++) {
-
-
-
-
             Thread sample = new Thread(runnable);
             sample.start();
         }

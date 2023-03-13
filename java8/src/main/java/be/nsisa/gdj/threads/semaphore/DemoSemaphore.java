@@ -2,7 +2,7 @@ package be.nsisa.gdj.threads.semaphore;
 
 import java.util.concurrent.Semaphore;
 
-public class JavaSemaphore {
+public class DemoSemaphore {
 
     public static void main(String[] args) throws InterruptedException {
         // creating a Semaphore object
