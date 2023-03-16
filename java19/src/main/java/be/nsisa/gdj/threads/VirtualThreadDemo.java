@@ -26,15 +26,13 @@ public class VirtualThreadDemo {
         executorService.execute(() -> log.info("Asynchronous task with executorService"));
 
         log.info("Still Alive {}", vThread.isAlive());
-
-
         Future<String> future = executorService.submit(
                 () -> {
                     log.info("Asynchronous task with future");
                     Thread.sleep(Duration.ofSeconds(5).toMillis());
                     return "Hello Threads!";
                 });
-        log.info("Result of a future {}" , future.get());  //returns null if the task has finished correctly.
+        log.info("Result of a future {}", future.get());  //returns null if the task has finished correctly.
         log.info("Still Alive {}", vThread.isAlive());
         executorService.shutdown();
     }
